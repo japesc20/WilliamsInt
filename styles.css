@@ -1,0 +1,203 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #0477ca;
+  text-decoration: none;
+}
+
+header {
+  background-color: #ffffff;
+}
+
+header .nav-bar {
+  background-color: #ffffff;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: fixed;
+  padding: 0 200px;
+  z-index: 99;
+}
+
+header .nav-bar .logo {
+  font-size: 2rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header .nav-bar .nav-menu {
+  height: 100px;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.1rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header .nav-bar .nav-menu .nav-item {
+  padding: 0 30px;
+}
+
+header .nav-bar .nav-menu .nav-item a {
+  color: #0477ca;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
+
+header .nav-bar .nav-menu .nav-item a:hover {
+  color: #00497e;
+  -webkit-transition: 400ms ease-in-out;
+  transition: 400ms ease-in-out;
+}
+
+header .nav-bar .hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+header .nav-bar .hamburger .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #0477ca;
+}
+
+@media (max-width: 1024px) {
+  header .nav-bar {
+    padding: 0 20px;
+    height: 80px;
+  }
+  header .nav-bar .nav-menu {
+    background-color: #0477ca;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: -100%;
+    top: 80px;
+    padding-bottom: 20px;
+    gap: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+    overflow: scroll;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    z-index: 99;
+  }
+  header .nav-bar .nav-menu.active {
+    left: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  header .nav-bar .nav-menu .nav-item {
+    margin: 16px 0;
+    padding: 40px 0;
+    font-size: 1.8rem;
+  }
+  header .nav-bar .nav-menu .nav-item .nav-link {
+    color: #ffffff;
+  }
+  header .nav-bar .hamburger {
+    display: block;
+    margin-left: 40px;
+  }
+  header .nav-bar .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  header .nav-bar .hamburger.active .bar:nth-child(1) {
+    -webkit-transform: translateY(8px) rotate(45deg);
+            transform: translateY(8px) rotate(45deg);
+  }
+  header .nav-bar .hamburger.active .bar:nth-child(3) {
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+            transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+.carousel {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  -webkit-transition: 300ms opacity ease-in-out;
+  transition: 300ms opacity ease-in-out;
+  -webkit-transition-delay: 300ms;
+          transition-delay: 300ms;
+}
+
+.slide[data-active] {
+  z-index: 1;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+}
+
+.slide > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.carousel-button {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.carousel-button.prev {
+  left: 1rem;
+}
+
+.carousel-button.next {
+  right: 1rem;
+}
+/*# sourceMappingURL=styles.css.map */
