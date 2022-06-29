@@ -11,9 +11,15 @@ a {
   text-decoration: none;
 }
 
+body {
+  height: 100vh;
+}
+
 header {
 	background-color: #ffffff;
 
+
+  // Navbar Desktop View
   .nav-bar {
     background-color: #ffffff;
     width: 100%;
@@ -68,6 +74,8 @@ header {
     }
   }
   
+
+  // Navbar Mobile View
   @media (max-width: 1024px) {
     .nav-bar {
       padding: 0 20px;
@@ -81,12 +89,13 @@ header {
         left: -100%;
         top: 80px;
         padding-bottom: 20px;
+        margin-bottom: 20px;
         gap: 0;
         flex-direction: column;
         text-align: center;
         overflow: scroll;
         transition: 0.3s;
-        z-index: 99;
+        z-index: 999;
 
         &.active {
           left: 0;
@@ -125,65 +134,128 @@ header {
   }
 }
 
+
+// Landing Carousel Desktop View
+
 .carousel {
 	width: 100vw;
-	height: 100vh;
+	min-height: calc(100vh - 80px);
 	position: relative;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: 500ms opacity ease-in-out;
+      transition-delay: 500ms;
+      overflow: hidden;
+    }
+
+    .slide[data-active] {
+      z-index: 1;
+      opacity: 1;
+      transition-delay: 0ms;
+    }
+
+    .slide > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      animation: slide 25s infinite;
+    }
+
+    .slide > div:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .slide > div:nth-child(2) {
+      animation-delay: 5s;
+    }
+    .slide > div:nth-child(3) {
+      animation-delay: 10s;
+    }
+    .slide > div:nth-child(4) {
+      animation-delay: 15s;
+    }
+    .slide > div:nth-child(5) {
+      animation-delay: 20s;
+    }
+
+    @keyframes slide {
+      10% {
+        opacity: 1;
+      }
+      20% {
+        opacity: 1;
+      }
+      30% {
+        opacity: 0;
+      }
+      40% {
+        transform: scale(1.2);
+      }
+    }
+
+    .fade {
+      -webkit-animation-name: fadeIn;
+      -webkit-animation-duration: 1500ms;
+      animation-name: fade;
+      animation-duration: 1500ms;
+    }
+
+    @keyframes fade {
+      0% { opacity: 0}
+      100% { opacity: 1}
+    }
+  }
 }
 
-ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+// Footer Begins
+.footer {
+  height: 80px;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: auto;
+
+  .footer-links {
+    display: flex;
+    
+    .ft-link {
+      margin: 10px 20px;
+    }
+  }
+
+  .copyright {
+    margin-top: 5px;
+  }
 }
 
-.slide {
-	position: absolute;
-	inset: 0;
-	opacity: 0;
-  transition: 300ms opacity ease-in-out;
-  transition-delay: 300ms;
+// Footer Mobile View
+@media (max-width: 1024px) {
+  .footer {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+
+    .footer-links {
+      overflow-wrap: normal;
+
+      .ft-link {
+        margin: 0px 5px;
+        font-size: .9rem;
+      }
+
+    }
+  }
 }
-
-.slide[data-active] {
-  z-index: 1;
-	opacity: 1;
-  transition-delay: 0ms;
-}
-
-.slide > img {
-	display: block;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: center;
-}
-
-.carousel-button {
-	position: absolute;
-	z-index: 2;
-	top: 50%;
-	transform: translateY(-50%);
-	background: none;
-	border: none;
-	color: rgba(255, 255, 255, 0.5);
-	background-color: rgba(0, 0, 0, 0.2);
-	font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.carousel-button:hover,
-.carousel-button:focus {
-	color: white;
-	background-color: rgba(0, 0, 0, 0.4);
-}
-
-.carousel-button.prev {
-	left: 1rem;
-}
-
-.carousel-button.next {
-	right: 1rem;
-}
-
-
