@@ -132,4 +132,105 @@ header {
 
 .fj-products {
   padding-top: 100px;
+
+  .headline {
+    text-align: center;
+    font-size: 3rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  }
+
+  .engines {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .product {
+      display: flex;
+      align-items: center;
+      width: 80%;
+      padding: 50px;
+
+      .bar-info {
+        width: 100%;
+        position: relative;
+        box-sizing: border-box;
+        padding: 10px 30px;
+        overflow: hidden;
+        z-index: 2;
+        border-radius: 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: #ffffff;
+
+        span:nth-child(1) {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          margin: auto;
+          z-index: -2;
+          background: #ffffff;
+        }
+
+        span:nth-child(2) {
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          background: $williams-blue;
+          height: 100%;
+          position: absolute;
+          z-index: -1;
+        }
+
+        .bar {
+          border-radius: 20px;
+          animation: bar 2.25s cubic-bezier(0.17, 0.67, 0, 1);
+        }
+
+        @keyframes bar {
+          0%{
+            left: -500px;
+            opacity: 0;
+          }
+          100% {
+            left: 0;
+            opacity: 1;
+          }
+        }
+      }
+      
+      &:nth-child(1) span:nth-child(2) {
+        width: 50%;
+        animation-delay: 0;
+      }
+      &:nth-child(2) span:nth-child(2) {
+        width: 60%;
+        animation-delay: 0.05s;
+      }
+      &:nth-child(3) span:nth-child(2) {
+        width: 70%;
+        animation-delay: 0.1s;
+      }
+      &:nth-child(4) span:nth-child(2) {
+        width: 80%;
+        animation-delay: 0.15s;
+      }
+      &:nth-child(5) span:nth-child(2) {
+        width: 90%;
+        animation-delay: 0.2s;
+      }
+    }
+    .effect {
+
+      .inView {
+        opacity: 1;
+        -webkit-transform: translateY(0px) rotate(0deg) translateZ(0);
+        transform: translateY(0px) rotate(0deg) translateZ(0);
+      }
+    }
+  }
 }

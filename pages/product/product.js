@@ -19,3 +19,26 @@ navLinks.forEach(n =>
     navMenu.classList.remove("active");
   })
   )
+
+
+  // Fade in on scroll - Products
+
+  window.onload = function() {
+    const EFFECT = document.querySelectorAll(".effect");
+
+    window.addEventListener('scroll', scrollEffect);
+
+    function scrollEffect() {
+      for (let i=0; i < EFFECT.length; i++) {
+        let productArray = EFFECT[i];
+        let distInView = productArray.getBoundingClientRect().top - window.innerHeight + 20;
+
+        if (distInView < 0) {
+          productArray.classList.add("inView")
+        } else {
+          productArray.classList.remove("inView")
+        }
+      }
+    } 
+    scrollEffect()
+  }
